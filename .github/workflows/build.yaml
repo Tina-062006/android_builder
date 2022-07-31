@@ -72,8 +72,8 @@ jobs:
         uses: softprops/action-gh-release@v1
         if: ${{ env.commit }}
         with:
-          name: KM ${{ env.tag }}
-          tag_name: KM ${{ env.tag }}
+          name: KM_${{ env.tag }}
+          tag_name: KM_${{ env.tag }}
           body: ${{ env.commit }}
           files: |
             TVBoxOSC/apk/*
