@@ -37,7 +37,7 @@ jobs:
         if: ${{ env.commit }}
         working-directory: TVBoxOSC
         run: |
-          sed -i "/crosswalk/a\        maven { url 'http://9xi4o.tk/maven2' }" build.gradle
+          sed -i "/crosswalk/a\        maven { url 'https://jitpack.io' }" build.gradle
       - name: Release Apk Sign
         if: ${{ env.commit }}
         working-directory: TVBoxOSC
