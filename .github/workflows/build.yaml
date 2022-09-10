@@ -33,6 +33,11 @@ jobs:
           git checkout ${{ env.commit }}
           echo "tag=$(git log --date=format:'%Y%m%d-%H%M' --pretty=format:%cd ${{ env.commitS }} -1)" >> $GITHUB_ENV
           zip -q -x ".git/*" -r ${{ env.commitS }}-source.zip .
+      - name: Add Build Repo
+        if: ${{ env.commit }}
+        working-directory: TVBoxOSC
+        run: |
+          sed -i "/crosswalk/a\        maven { url 'http://9xi4o.tk/maven2' }" build.gradle
       - name: Release Apk Sign
         if: ${{ env.commit }}
         working-directory: TVBoxOSC
